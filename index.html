@@ -10,33 +10,33 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* ── Specialty Clinic Palette — cooler, slate-forward ── */
   :root {
-    --al: #2D5A6B; --al-l: #E4EEF2;  /* Allergy       slate teal    */
-    --au: #3D5A80; --au-l: #E4EBF2;  /* Audiology     slate blue    */
-    --ca: #6B2D2D; --ca-l: #F2E4E4;  /* Cardiology    deep rose     */
-    --co: #4A5568; --co-l: #ECEEF2;  /* Counseling    slate gray    */
-    --di: #3D6B4A; --di-l: #E4F0E7;  /* Dietitian     sage green    */
-    --en: #5A4A6B; --en-l: #EDE9F2;  /* Endocrine     dusty purple  */
-    --et: #2D4A6B; --et-l: #E4EBF5;  /* ENT           navy          */
-    --gs: #6B4A2D; --gs-l: #F2EBE4;  /* Gen Surgery   warm sienna   */
-    --gy: #6B2D55; --gy-l: #F2E4ED;  /* Gynecology    mauve         */
-    --mf: #2D6B60; --mf-l: #E4F2EF;  /* Mat Fetal     deep teal     */
-    --ne: #3D4A6B; --ne-l: #E7EAF2;  /* Nephrology    steel blue    */
-    --nr: #5A6B2D; --nr-l: #EDF2E4;  /* Neurology     olive         */
-    --on: #6B2D3D; --on-l: #F2E4E8;  /* Oncology      deep crimson  */
-    --op: #2D5568; --op-l: #E4EDF2;  /* Ophthalmology ocean         */
-    --or: #4A3D6B; --or-l: #EAE7F2;  /* Ortho         indigo        */
-    --pm: #6B5A2D; --pm-l: #F2EEE4;  /* Pain Mgmt     amber brown   */
-    --po: #2D6B3D; --po-l: #E4F2E9;  /* Podiatry      forest        */
-    --ps: #553D6B; --ps-l: #EDE8F2;  /* Psychiatry    violet        */
-    --pu: #2D4A55; --pu-l: #E4EBF0;  /* Pulmonology   dark cyan     */
-    --rh: #6B3D2D; --rh-l: #F2EAE4;  /* Rheumatology  terra cotta   */
-    --ur: #2D3D6B; --ur-l: #E4E8F2;  /* Urology       cobalt        */
-    --va: #3D6B5A; --va-l: #E7F2EE;  /* Vascular      teal green    */
-    --sl: #3D4A5A; --sl-l: #E7EAF0;  /* Sleep         dark slate    */
-    --ss: #5A3D2D; --ss-l: #F0EAE4;  /* Spec Surgery  mahogany      */
-    --sp: #3D2D5A; --sp-l: #EAE7F2;  /* Spinal        deep navy     */
+    --al: #2D5A6B; --al-l: #E4EEF2;
+    --au: #3D5A80; --au-l: #E4EBF2;
+    --ca: #6B2D2D; --ca-l: #F2E4E4;
+    --co: #4A5568; --co-l: #ECEEF2;
+    --di: #3D6B4A; --di-l: #E4F0E7;
+    --en: #5A4A6B; --en-l: #EDE9F2;
+    --et: #2D4A6B; --et-l: #E4EBF5;
+    --gs: #6B4A2D; --gs-l: #F2EBE4;
+    --gy: #6B2D55; --gy-l: #F2E4ED;
+    --mf: #2D6B60; --mf-l: #E4F2EF;
+    --ne: #3D4A6B; --ne-l: #E7EAF2;
+    --nr: #5A6B2D; --nr-l: #EDF2E4;
+    --on: #6B2D3D; --on-l: #F2E4E8;
+    --op: #2D5568; --op-l: #E4EDF2;
+    --or: #4A3D6B; --or-l: #EAE7F2;
+    --pm: #6B5A2D; --pm-l: #F2EEE4;
+    --po: #2D6B3D; --po-l: #E4F2E9;
+    --ps: #553D6B; --ps-l: #EDE8F2;
+    --pu: #2D4A55; --pu-l: #E4EBF0;
+    --rh: #6B3D2D; --rh-l: #F2EAE4;
+    --ur: #2D3D6B; --ur-l: #E4E8F2;
+    --va: #3D6B5A; --va-l: #E7F2EE;
+    --sl: #3D4A5A; --sl-l: #E7EAF0;
+    --ss: #5A3D2D; --ss-l: #F0EAE4;
+    --sp: #3D2D5A; --sp-l: #EAE7F2;
+    --nw: #1a5c3a; --nw-l: #e4f2eb;
   }
 
   html, body { width:100%; height:100%; background:#000; overflow:hidden; font-family:'DM Sans',sans-serif; }
@@ -46,7 +46,6 @@
   .dot-bg { position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(circle, rgba(255,255,255,0.15) 1.5px, transparent 1.5px); background-size:28px 28px; }
   #progress-bar { position:fixed; bottom:0; left:0; height:4px; background:rgba(255,255,255,0.45); z-index:100; transition:width linear; }
 
-  /* Shared type */
   .slide-tag { display:inline-block; padding:6px 16px; border-radius:30px; font-size:clamp(12px,1.1vw,16px); font-weight:600; letter-spacing:1.8px; text-transform:uppercase; margin-bottom:20px; }
   .slide-headline { font-family:'DM Serif Display',serif; font-size:clamp(28px,4.2vw,64px); line-height:1.15; letter-spacing:-0.5px; margin-bottom:18px; }
   .slide-body { font-size:clamp(16px,1.9vw,28px); line-height:1.55; font-weight:300; }
@@ -54,7 +53,6 @@
   .dept-name { display:flex; align-items:center; gap:10px; margin-top:28px; font-size:clamp(11px,1vw,15px); font-weight:600; letter-spacing:2px; text-transform:uppercase; opacity:0.6; }
   .dept-name::before { content:''; display:block; width:32px; height:2px; border-radius:2px; background:currentColor; opacity:0.5; }
 
-  /* STAT */
   .layout-stat { flex-direction:row; }
   .layout-stat .stat-panel { width:38%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:6%; position:relative; }
   .layout-stat .stat-num { font-family:'DM Serif Display',serif; font-size:clamp(56px,9vw,120px); line-height:1; letter-spacing:-3px; color:#fff; }
@@ -62,7 +60,6 @@
   .layout-stat .text-panel { flex:1; display:flex; flex-direction:column; justify-content:center; padding:6% 7% 6% 5%; background:#fff; color:#1A1A1A; }
   .layout-stat .text-panel .slide-body { color:#3D4452; }
 
-  /* HERO */
   .layout-hero { align-items:stretch; }
   .layout-hero .hero-inner { flex:1; display:flex; flex-direction:column; justify-content:center; padding:9% 11%; position:relative; color:#fff; }
   .layout-hero .slide-body { color:rgba(255,255,255,0.85); max-width:72%; }
@@ -70,19 +67,16 @@
   .layout-hero .slide-tag { background:rgba(255,255,255,0.18); color:#fff; }
   .layout-hero .dept-name { color:rgba(255,255,255,0.55); }
 
-  /* TIP */
   .layout-tip { flex-direction:row; }
   .layout-tip .tip-bar { width:8px; flex-shrink:0; }
   .layout-tip .tip-content { flex:1; display:flex; flex-direction:column; justify-content:center; padding:7% 9%; }
   .layout-tip .slide-body { color:#3D4452; }
 
-  /* SPLIT */
   .layout-split { flex-direction:row; }
   .layout-split .split-left { width:46%; display:flex; flex-direction:column; justify-content:center; padding:7%; color:#fff; position:relative; }
   .layout-split .split-right { flex:1; background:#fff; display:flex; flex-direction:column; justify-content:center; padding:7%; color:#1A1A1A; }
   .layout-split .split-right .slide-body { color:#3D4452; }
 
-  /* SPOTLIGHT */
   .layout-spotlight .photo-panel { width:38%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:6%; position:relative; color:#fff; }
   .layout-spotlight .staff-photo { width:clamp(100px,13vw,180px); height:clamp(100px,13vw,180px); border-radius:50%; object-fit:cover; border:4px solid rgba(255,255,255,0.4); margin-bottom:20px; background:rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; font-size:clamp(36px,5vw,64px); font-family:'DM Serif Display',serif; color:#fff; }
   .layout-spotlight .staff-name { font-family:'DM Serif Display',serif; font-size:clamp(20px,2.4vw,34px); color:#fff; text-align:center; line-height:1.2; }
@@ -92,7 +86,6 @@
   .layout-spotlight .fun-fact { font-size:clamp(15px,1.7vw,24px); line-height:1.5; font-weight:300; color:#3D4452; }
   .layout-spotlight .years-badge { display:inline-flex; align-items:center; gap:8px; margin-top:18px; font-size:clamp(12px,1vw,15px); font-weight:500; opacity:0.55; }
 
-  /* WEATHER */
   .layout-weather { background:#0a1628; align-items:stretch; flex-direction:row; }
   .weather-left { width:42%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:6%; position:relative; border-right:1px solid rgba(255,255,255,0.08); }
   .weather-icon { font-size:clamp(56px,10vw,120px); line-height:1; margin-bottom:16px; }
@@ -126,12 +119,29 @@
 //  SLIDE CONTENT
 //  LAYOUTS:  "stat" | "hero" | "tip" | "split" | "spotlight"
 //  Set  active: false  to hide a slide without deleting it.
+//  Add  expires: "YYYY-MM-DD"  to auto-remove a slide after that date.
 //  Change  rotation_seconds  to control how long each slide shows.
 // =====================================================================
 
 const CONTENT = {
   settings: { rotation_seconds: 15 },
   slides: [
+
+    // ── NURSES WEEK — expires end of day May 11, 2026 ─────────────
+    {
+      id: "nurses-week-1", dept: "nw", layout: "split", active: true,
+      tag: "Nurses Week 2026",
+      headline: "The heart of healthcare.",
+      body: "Nurses are the constant presence in every patient\'s hardest moments — and the skilled, compassionate team at <strong>Citizens Health</strong> is no exception. Thank you for the care, the expertise, and the dedication you bring every single day.",
+      expires: "2026-05-12"
+    },
+    {
+      id: "nurses-week-2", dept: "nw", layout: "hero", active: true,
+      tag: "Nurses Week 2026",
+      headline: "4 million strong — and counting.",
+      body: "Nursing is the largest healthcare profession in the United States, with over <strong>4 million registered nurses</strong> serving patients in hospitals, clinics, schools, and communities across the country. This week, we celebrate every one of them.",
+      expires: "2026-05-12"
+    },
 
     // ── ALLERGY / IMMUNOLOGY ──────────────────────────────────────
     {
@@ -146,6 +156,12 @@ const CONTENT = {
       tag: "Fun Fact",
       headline: "Allergies are a case of mistaken identity.",
       body: "An allergic reaction occurs when the immune system identifies a harmless substance — pollen, pet dander, a peanut — as a threat and mounts a full defense. It is a remarkably sophisticated system responding to the wrong target."
+    },
+    {
+      id: "al-3", dept: "al", layout: "hero", active: true,
+      tag: "Science Fact",
+      headline: "Hygiene may be partly responsible for rising allergy rates.",
+      body: "The \'hygiene hypothesis\' proposes that reduced childhood exposure to microbes — due to cleaner modern environments — may leave the immune system without enough targets to practice on, making it more likely to overreact to harmless substances."
     },
 
     // ── AUDIOLOGY ─────────────────────────────────────────────────
@@ -162,6 +178,12 @@ const CONTENT = {
       headline: "The smallest bones in your body are in your ear.",
       body: "The malleus, incus, and stapes — collectively called the ossicles — are the three smallest bones in the human body. All three could fit together on a penny, yet they are responsible for transmitting every sound you have ever heard."
     },
+    {
+      id: "au-3", dept: "au", layout: "tip", active: true,
+      tag: "Did You Know?",
+      headline: "Your ears never stop working — even while you sleep.",
+      body: "The auditory system remains active during sleep, continuing to process sounds and pass significant ones to the brain. This is why a familiar voice or a loud noise can wake you, while routine background sounds — like a fan — are filtered out."
+    },
 
     // ── CARDIOLOGY ────────────────────────────────────────────────
     {
@@ -177,6 +199,18 @@ const CONTENT = {
       headline: "The heart has its own electrical system.",
       body: "Unlike any other muscle in the body, the heart generates its own electrical impulses through a built-in pacemaker called the <strong>sinoatrial node</strong>. This is why a heart can keep beating even when removed from the body — as long as it receives oxygen."
     },
+    {
+      id: "ca-3", dept: "ca", layout: "split", active: true,
+      tag: "History",
+      headline: "The stethoscope was invented out of modesty.",
+      body: "French physician René Laennec invented the stethoscope in 1816 because he was uncomfortable placing his ear directly against a patient\'s chest. He rolled paper into a tube and discovered it amplified heart sounds far better than direct contact."
+    },
+    {
+      id: "ca-4", dept: "ca", layout: "hero", active: true,
+      tag: "Fun Fact",
+      headline: "The heart begins beating before the brain exists.",
+      body: "In a developing embryo, the primitive heart starts beating around <strong>3 weeks</strong> after conception — weeks before the brain or nervous system have formed. It is the first functional organ in the human body."
+    },
 
     // ── COUNSELING SERVICES ───────────────────────────────────────
     {
@@ -185,6 +219,12 @@ const CONTENT = {
       headline: "The brain physically changes when you learn new coping skills.",
       body: "Neuroimaging studies show that therapy and counseling produce measurable changes in brain structure and activity — particularly in areas linked to emotional regulation. Learning to think differently is also learning to <strong>wire the brain differently</strong>."
     },
+    {
+      id: "co-2", dept: "co", layout: "tip", active: true,
+      tag: "Did You Know?",
+      headline: "Talking about a feeling reduces its intensity.",
+      body: "Neuroscience research has found that putting emotions into words — a process called <strong>affect labeling</strong> — measurably reduces activity in the amygdala, the brain\'s emotional alarm center. It is one reason that simply talking through a difficult experience can feel like relief."
+    },
 
     // ── DIETITIAN ─────────────────────────────────────────────────
     {
@@ -192,6 +232,12 @@ const CONTENT = {
       tag: "Did You Know?",
       headline: "The gut is sometimes called the second brain.",
       body: "The digestive system contains over <strong>100 million nerve cells</strong> — more than the spinal cord. This enteric nervous system operates largely independently and communicates constantly with the brain via the vagus nerve."
+    },
+    {
+      id: "di-2", dept: "di", layout: "hero", active: true,
+      tag: "Did You Know?",
+      headline: "The human gut contains trillions of microorganisms.",
+      body: "The microbiome — the community of bacteria, viruses, and fungi living in the digestive tract — contains an estimated <strong>38 trillion microorganisms</strong>. Scientists now believe this community plays a role in immunity, mood, metabolism, and far more than previously understood."
     },
 
     // ── ENDOCRINOLOGY ─────────────────────────────────────────────
@@ -208,6 +254,12 @@ const CONTENT = {
       headline: "The thyroid gland controls the speed of nearly everything.",
       body: "The thyroid — a small butterfly-shaped gland in your neck — produces hormones that regulate your heart rate, body temperature, digestion, and metabolism. It is one of the most influential glands in the entire endocrine system."
     },
+    {
+      id: "en-3", dept: "en", layout: "split", active: true,
+      tag: "Fun Fact",
+      headline: "Adrenaline acts in milliseconds.",
+      body: "When the adrenal glands release epinephrine (adrenaline) in response to stress, the effects reach the heart, lungs, and muscles in <strong>under a second</strong>. It is one of the fastest hormonal responses in the body — a survival mechanism refined over millions of years of evolution."
+    },
 
     // ── ENT ───────────────────────────────────────────────────────
     {
@@ -223,6 +275,12 @@ const CONTENT = {
       headline: "Your nose can detect over one trillion distinct smells.",
       body: "For a long time scientists estimated humans could detect around 10,000 odors. A 2014 study found the actual number is likely over <strong>one trillion</strong> — making smell one of the most sensitive and underappreciated of the human senses."
     },
+    {
+      id: "et-3", dept: "et", layout: "tip", active: true,
+      tag: "Did You Know?",
+      headline: "The sinuses are still not fully understood.",
+      body: "Despite being some of the most frequently treated structures in medicine, the exact function of the paranasal sinuses remains debated. Proposed roles include <strong>humidifying air, reducing skull weight, enhancing voice resonance,</strong> and producing nitric oxide — possibly all of the above."
+    },
 
     // ── GENERAL SURGERY ───────────────────────────────────────────
     {
@@ -237,6 +295,12 @@ const CONTENT = {
       headline: "The appendix isn\'t as useless as once thought.",
       body: "Long considered a vestigial organ, the appendix is now believed to play a role in <strong>gut microbiome maintenance</strong> — acting as a reservoir for beneficial bacteria. It may help repopulate the digestive tract after illness."
     },
+    {
+      id: "gs-3", dept: "gs", layout: "hero", active: true,
+      tag: "Did You Know?",
+      headline: "The liver is the only internal organ that can fully regenerate.",
+      body: "If up to <strong>70% of the liver is removed</strong>, it can regrow to its original size within weeks. This remarkable capacity has made partial liver donation between living donors possible — and has fascinated scientists studying tissue regeneration for decades."
+    },
 
     // ── GYNECOLOGY ────────────────────────────────────────────────
     {
@@ -245,8 +309,26 @@ const CONTENT = {
       headline: "The uterus is one of the strongest muscles in the body.",
       body: "Pound for pound, the uterus generates more force than almost any other muscle. During labor, uterine contractions can produce pressures exceeding <strong>100 mmHg</strong> — comparable to the grip strength of a hand squeezing at full force."
     },
+    {
+      id: "gy-2", dept: "gy", layout: "tip", active: true,
+      tag: "Did You Know?",
+      headline: "Women\'s hearts beat slightly faster than men\'s.",
+      body: "On average, women\'s resting heart rates are about <strong>3–5 beats per minute faster</strong> than men\'s. Women\'s hearts are also typically smaller and pump less blood per beat, compensating with a faster rhythm to maintain the same cardiac output."
+    },
 
     // ── MATERNAL FETAL MEDICINE ───────────────────────────────────
+    {
+      id: "mf-1", dept: "mf", layout: "hero", active: true,
+      tag: "Did You Know?",
+      headline: "A fetus develops fingerprints in the womb.",
+      body: "Fingerprints begin forming around week 10 of pregnancy and are fully developed by week 24. They are shaped partly by genetics and partly by the unique movements and position of each fetus — which is why even identical twins have different fingerprints."
+    },
+    {
+      id: "mf-2", dept: "mf", layout: "split", active: true,
+      tag: "Amazing Fact",
+      headline: "The placenta is an organ built from scratch — and discarded.",
+      body: "The placenta is the only organ the human body grows temporarily. It forms entirely from fetal cells after implantation, serves as the baby\'s lungs, kidneys, and digestive system for nine months, then is delivered and shed. No other organ works this way."
+    },
 
     // ── NEPHROLOGY ────────────────────────────────────────────────
     {
@@ -261,6 +343,12 @@ const CONTENT = {
       tag: "Fun Fact",
       headline: "You can live a full life with just one kidney.",
       body: "The human body is designed with two kidneys, but one healthy kidney is sufficient to filter the blood and maintain normal function. The remaining kidney gradually grows to compensate — a phenomenon called <strong>compensatory hypertrophy</strong>."
+    },
+    {
+      id: "ne-3", dept: "ne", layout: "split", active: true,
+      tag: "Fun Fact",
+      headline: "The kidneys maintain a precise chemical balance around the clock.",
+      body: "Blood pH must stay within a very narrow range — between 7.35 and 7.45 — to sustain life. The kidneys are the primary long-term regulator of this balance, constantly adjusting the composition of blood with extraordinary precision."
     },
 
     // ── NEUROLOGY ─────────────────────────────────────────────────
@@ -277,6 +365,12 @@ const CONTENT = {
       headline: "Nerve signals travel at up to 270 miles per hour.",
       body: "The fastest nerve signals in the body — carried by heavily myelinated fibers — travel at speeds up to <strong>270 mph</strong>. That\'s roughly the speed of the fastest land vehicles ever built, happening continuously inside your body."
     },
+    {
+      id: "nr-3", dept: "nr", layout: "tip", active: true,
+      tag: "Science Fact",
+      headline: "The brain uses about 20% of the body\'s energy.",
+      body: "Despite making up only about 2% of body weight, the brain consumes roughly <strong>20% of the body\'s total energy</strong> — most of it used to maintain the electrical potential of neurons even when they\'re not actively firing. The brain has no energy storage, so it demands a continuous supply."
+    },
 
     // ── ONCOLOGY / HEMATOLOGY ─────────────────────────────────────
     {
@@ -291,6 +385,12 @@ const CONTENT = {
       tag: "History",
       headline: "Blood transfusion has been saving lives since 1818.",
       body: "The first successful human blood transfusion was performed by British obstetrician James Blundell in <strong>1818</strong>, saving a patient suffering from hemorrhage. It was a landmark moment in the history of hematology and surgery."
+    },
+    {
+      id: "on-3", dept: "on", layout: "hero", active: true,
+      tag: "Did You Know?",
+      headline: "The immune system destroys abnormal cells every day.",
+      body: "The body\'s immune surveillance system constantly scans for cells that have developed abnormal mutations and eliminates them before they can grow. Scientists believe this process quietly prevents countless potential problems throughout a person\'s lifetime."
     },
 
     // ── OPHTHALMOLOGY ─────────────────────────────────────────────
@@ -307,6 +407,12 @@ const CONTENT = {
       headline: "Your eyes see the world upside down — and the brain flips it.",
       body: "The lens of the eye projects an <strong>inverted image</strong> onto the retina. The brain automatically corrects for this, interpreting the signal as right-side up. Experiments where subjects wore inverting glasses found the brain adapted within days."
     },
+    {
+      id: "op-3", dept: "op", layout: "tip", active: true,
+      tag: "Fun Fact",
+      headline: "The cornea has no blood vessels.",
+      body: "The cornea — the clear front surface of the eye — is one of the only tissues in the body with <strong>no blood supply</strong>. It receives oxygen directly from the air and nutrients from the tears and fluid behind it. This transparency is essential for clear vision."
+    },
 
     // ── ORTHOPEDICS ───────────────────────────────────────────────
     {
@@ -315,6 +421,12 @@ const CONTENT = {
       stat: "206", unit: "Bones in the adult body",
       headline: "You\'re born with nearly 300 bones.",
       body: "Babies are born with around <strong>270–300 bones</strong>, many of which gradually fuse together. By adulthood the skeleton settles at <strong>206 bones</strong> — a process that isn\'t fully complete until the mid-20s."
+    },
+    {
+      id: "or-2", dept: "or", layout: "hero", active: true,
+      tag: "Did You Know?",
+      headline: "The knee is the largest and most complex joint in the body.",
+      body: "It is held together by <strong>four major ligaments, two menisci, and over a dozen tendons</strong>, yet it is essentially a hinge designed to handle forces several times your body weight with every step."
     },
 
     // ── PAIN MANAGEMENT ───────────────────────────────────────────
@@ -329,6 +441,12 @@ const CONTENT = {
       tag: "Fun Fact",
       headline: "The body produces its own natural painkillers.",
       body: "Endorphins — the body\'s naturally produced opioids — were discovered in 1975. The word is a contraction of <strong>\'endogenous morphine\'</strong> — meaning morphine produced from within. They are released during exercise, laughter, and even certain foods."
+    },
+    {
+      id: "pm-3", dept: "pm", layout: "split", active: true,
+      tag: "Science Fact",
+      headline: "Chronic pain can change the structure of the brain.",
+      body: "Long-term pain is associated with measurable changes in brain gray matter density, particularly in regions involved in emotional regulation and decision-making. This is one reason chronic pain is now understood as a <strong>condition of the nervous system</strong>, not just the site of injury."
     },
 
     // ── PODIATRY ──────────────────────────────────────────────────
@@ -345,6 +463,12 @@ const CONTENT = {
       headline: "The average person walks 100,000 miles in a lifetime.",
       body: "Over the course of a lifetime, the average person takes enough steps to walk approximately <strong>100,000 miles</strong> — roughly four times around the circumference of the Earth. The feet absorb the equivalent of hundreds of tons of force each day."
     },
+    {
+      id: "po-3", dept: "po", layout: "hero", active: true,
+      tag: "Did You Know?",
+      headline: "Toenails and fingernails grow at different speeds.",
+      body: "Fingernails grow roughly <strong>three times faster</strong> than toenails — about 3mm per month versus 1mm. The nail on the middle finger grows fastest of all. Both are made of keratin, the same protein that forms hair and the outer layer of skin."
+    },
 
     // ── PSYCHIATRY ────────────────────────────────────────────────
     {
@@ -358,6 +482,12 @@ const CONTENT = {
       tag: "Science Fact",
       headline: "The brain\'s prefrontal cortex isn\'t fully developed until age 25.",
       body: "The prefrontal cortex — responsible for decision-making, impulse control, and long-term planning — is the <strong>last region of the brain to mature</strong>. This is one reason adolescent and young adult behavior looks different from adult behavior at a neurological level."
+    },
+    {
+      id: "ps-3", dept: "ps", layout: "split", active: true,
+      tag: "Did You Know?",
+      headline: "Dreams occur in every sleep cycle — not just deep sleep.",
+      body: "While the most vivid dreams happen during REM sleep, research has shown that dreaming occurs across all sleep stages. The brain appears to use dreaming to <strong>process emotional experiences, consolidate memories,</strong> and run simulations of future scenarios."
     },
 
     // ── PULMONOLOGY ───────────────────────────────────────────────
@@ -374,6 +504,12 @@ const CONTENT = {
       headline: "You breathe about 22,000 times every day.",
       body: "Most of those breaths happen completely without conscious thought, regulated by the brainstem. Over a lifetime, the average person takes around <strong>600 million breaths</strong> — an involuntary process running continuously from the first moment of life."
     },
+    {
+      id: "pu-3", dept: "pu", layout: "tip", active: true,
+      tag: "Fun Fact",
+      headline: "The left and right lungs are not the same size.",
+      body: "The <strong>right lung is larger</strong> than the left, with three lobes compared to the left\'s two. The left lung is smaller to make room for the heart, which sits slightly left of center in the chest. Together they weigh about 2.5 pounds."
+    },
 
     // ── RHEUMATOLOGY ──────────────────────────────────────────────
     {
@@ -386,7 +522,13 @@ const CONTENT = {
       id: "rh-2", dept: "rh", layout: "tip", active: true,
       tag: "Science Fact",
       headline: "Inflammation is a feature, not just a flaw.",
-      body: "Inflammation is the immune system\'s first response to injury or infection — a carefully orchestrated process involving chemical signals, white blood cells, and increased blood flow. In autoimmune conditions, that process <strong>activates without an external trigger</strong> — one of the central puzzles of modern medicine."
+      body: "Inflammation is the immune system\'s first response to injury or infection — a carefully orchestrated process involving chemical signals, white blood cells, and increased blood flow. In autoimmune conditions, that process <strong>activates without an external trigger</strong>."
+    },
+    {
+      id: "rh-3", dept: "rh", layout: "hero", active: true,
+      tag: "Did You Know?",
+      headline: "There are over 100 distinct types of arthritis.",
+      body: "Most people think of arthritis as a single condition, but it is actually an umbrella term covering more than <strong>100 different diseases</strong> affecting joints, surrounding tissue, and connective tissue throughout the body."
     },
 
     // ── UROLOGY ───────────────────────────────────────────────────
@@ -403,6 +545,12 @@ const CONTENT = {
       headline: "The bladder is far more elastic than most people realize.",
       body: "A typical human bladder can comfortably hold about <strong>16 ounces of urine</strong> before sending the signal to urinate — but it can stretch to hold nearly twice that. The muscular wall is designed to expand and contract thousands of times over a lifetime."
     },
+    {
+      id: "ur-3", dept: "ur", layout: "tip", active: true,
+      tag: "Did You Know?",
+      headline: "The kidney stone is one of the oldest documented medical conditions.",
+      body: "Kidney stones have been found in Egyptian mummies dating back over <strong>7,000 years</strong>, making them one of the oldest known human ailments. Ancient physicians in Egypt, India, and Greece all described and attempted to treat them."
+    },
 
     // ── VASCULAR SURGERY ──────────────────────────────────────────
     {
@@ -411,6 +559,18 @@ const CONTENT = {
       stat: "1.5 gal", unit: "Blood pumped per minute",
       headline: "The heart is an extraordinary pump.",
       body: "At rest, the heart pumps about <strong>1.5 gallons of blood per minute</strong>. During intense exercise, that figure can climb to over 5 gallons per minute. Over an average lifetime, the heart pumps enough blood to fill more than three supertankers."
+    },
+    {
+      id: "va-2", dept: "va", layout: "hero", active: true,
+      tag: "Did You Know?",
+      headline: "Arteries and veins are fundamentally different structures.",
+      body: "Arteries carry oxygenated blood away from the heart under high pressure, with thick muscular walls built to withstand the force. Veins carry blood back at low pressure, with thinner walls and one-way valves to prevent backflow."
+    },
+    {
+      id: "va-3", dept: "va", layout: "split", active: true,
+      tag: "History",
+      headline: "The first vascular surgery was performed in 1906.",
+      body: "Alexis Carrel developed the technique of <strong>suturing blood vessels</strong> in the early 1900s — work so groundbreaking it earned him the Nobel Prize in 1912. His methods became the foundation of modern vascular and transplant surgery."
     },
 
     // ── SLEEP MEDICINE ────────────────────────────────────────────
@@ -426,6 +586,12 @@ const CONTENT = {
       headline: "Every species with a nervous system sleeps.",
       body: "From fruit flies to elephants, every animal studied with a nervous system shows some form of sleep. Even jellyfish, which have no brain, exhibit sleep-like states. Scientists consider this near-universal behavior one of the strongest signals that <strong>sleep is biologically essential</strong>."
     },
+    {
+      id: "sl-3", dept: "sl", layout: "split", active: true,
+      tag: "Science Fact",
+      headline: "Sleep deprivation affects the body as profoundly as alcohol.",
+      body: "Studies have shown that being awake for <strong>17–19 hours</strong> produces cognitive impairment equivalent to a blood alcohol level of 0.05%. After 24 hours without sleep, impairment matches a 0.10% blood alcohol level — above the legal driving limit in every U.S. state."
+    },
 
     // ── SPECIALTY SURGERY ─────────────────────────────────────────
     {
@@ -433,6 +599,12 @@ const CONTENT = {
       tag: "History",
       headline: "Laparoscopic surgery changed everything in 1987.",
       body: "The first laparoscopic cholecystectomy (gallbladder removal) was performed in <strong>1987</strong> in France. Within a decade it had become the standard approach worldwide — transforming a week-long hospital stay into a same-day outpatient procedure."
+    },
+    {
+      id: "ss-2", dept: "ss", layout: "hero", active: true,
+      tag: "Did You Know?",
+      headline: "Robotic surgery doesn\'t mean the robot operates alone.",
+      body: "In robotic-assisted surgery, a surgeon controls every movement in real time from a console — the robotic system simply translates those movements into smaller, more precise actions than the human hand can achieve alone. The surgeon is <strong>always in complete control</strong>."
     },
 
     // ── SPINAL SURGERY ────────────────────────────────────────────
@@ -443,218 +615,6 @@ const CONTENT = {
       headline: "The spine is flexible by design.",
       body: "The adult spine contains <strong>33 vertebrae</strong> stacked in a precise S-shaped curve. That curve isn\'t a structural flaw — it acts as a spring, distributing mechanical forces and giving the spine both strength and remarkable flexibility."
     },
-
-
-    {
-      id: "mf-1", dept: "mf", layout: "hero", active: true,
-      tag: "Did You Know?",
-      headline: "A fetus develops fingerprints in the womb.",
-      body: "Fingerprints begin forming around week 10 of pregnancy and are fully developed by week 24. They are shaped partly by genetics and partly by the unique movements and position of each fetus — which is why even identical twins have different fingerprints."
-    },
-    {
-      id: "mf-2", dept: "mf", layout: "split", active: true,
-      tag: "Amazing Fact",
-      headline: "The placenta is an organ built from scratch — and discarded.",
-      body: "The placenta is the only organ the human body grows temporarily. It forms entirely from fetal cells after implantation, serves as the baby's lungs, kidneys, and digestive system for nine months, then is delivered and shed. No other organ in the human body works this way."
-    },
-
-    // ── ALLERGY NEW ───────────────────────────────────────────────
-    {
-      id: "al-3", dept: "al", layout: "hero", active: true,
-      tag: "Science Fact",
-      headline: "Hygiene may be partly responsible for rising allergy rates.",
-      body: "The 'hygiene hypothesis' proposes that reduced childhood exposure to microbes — due to cleaner modern environments — may leave the immune system without enough targets to practice on, making it more likely to overreact to harmless substances."
-    },
-
-    // ── AUDIOLOGY NEW ─────────────────────────────────────────────
-    {
-      id: "au-3", dept: "au", layout: "tip", active: true,
-      tag: "Did You Know?",
-      headline: "Your ears never stop working — even while you sleep.",
-      body: "The auditory system remains active during sleep, continuing to process sounds and pass significant ones to the brain. This is why a familiar voice or a loud noise can wake you, while routine background sounds — like a fan — are filtered out."
-    },
-
-    // ── CARDIOLOGY NEW ────────────────────────────────────────────
-    {
-      id: "ca-3", dept: "ca", layout: "split", active: true,
-      tag: "History",
-      headline: "The stethoscope was invented out of modesty.",
-      body: "French physician René Laennec invented the stethoscope in 1816 because he was uncomfortable placing his ear directly against a patient's chest. He rolled paper into a tube and discovered it amplified heart sounds far better than direct contact — and modern medicine was changed forever."
-    },
-    {
-      id: "ca-4", dept: "ca", layout: "hero", active: true,
-      tag: "Fun Fact",
-      headline: "The heart begins beating before the brain exists.",
-      body: "In a developing embryo, the primitive heart starts beating around <strong>3 weeks</strong> after conception — weeks before the brain or nervous system have formed. It is the first functional organ in the human body."
-    },
-
-    // ── COUNSELING NEW ────────────────────────────────────────────
-    {
-      id: "co-2", dept: "co", layout: "tip", active: true,
-      tag: "Did You Know?",
-      headline: "Talking about a feeling reduces its intensity.",
-      body: "Neuroscience research has found that putting emotions into words — a process called <strong>affect labeling</strong> — measurably reduces activity in the amygdala, the brain's emotional alarm center. It is one reason that simply talking through a difficult experience can feel like relief."
-    },
-
-    // ── DIETITIAN NEW ─────────────────────────────────────────────
-    {
-      id: "di-2", dept: "di", layout: "hero", active: true,
-      tag: "Did You Know?",
-      headline: "The human gut contains trillions of microorganisms.",
-      body: "The microbiome — the community of bacteria, viruses, and fungi living in the digestive tract — contains an estimated <strong>38 trillion microorganisms</strong>. Scientists now believe this community plays a role in immunity, mood, metabolism, and far more than previously understood."
-    },
-
-    // ── ENDOCRINOLOGY NEW ─────────────────────────────────────────
-    {
-      id: "en-3", dept: "en", layout: "split", active: true,
-      tag: "Fun Fact",
-      headline: "Adrenaline acts in milliseconds.",
-      body: "When the adrenal glands release epinephrine (adrenaline) in response to stress, the effects reach the heart, lungs, and muscles in <strong>under a second</strong>. It is one of the fastest hormonal responses in the body — a survival mechanism refined over millions of years of evolution."
-    },
-
-    // ── ENT NEW ───────────────────────────────────────────────────
-    {
-      id: "et-3", dept: "et", layout: "tip", active: true,
-      tag: "Did You Know?",
-      headline: "The sinuses are still not fully understood.",
-      body: "Despite being some of the most frequently treated structures in medicine, the exact function of the paranasal sinuses remains debated. Proposed roles include <strong>humidifying air, reducing skull weight, enhancing voice resonance,</strong> and producing nitric oxide — possibly all of the above."
-    },
-
-    // ── GENERAL SURGERY NEW ───────────────────────────────────────
-    {
-      id: "gs-3", dept: "gs", layout: "hero", active: true,
-      tag: "Did You Know?",
-      headline: "The liver is the only internal organ that can fully regenerate.",
-      body: "If up to <strong>70% of the liver is removed</strong>, it can regrow to its original size within weeks. This remarkable capacity has made partial liver donation between living donors possible — and has fascinated scientists studying tissue regeneration for decades."
-    },
-
-    // ── GYNECOLOGY NEW ────────────────────────────────────────────
-    {
-      id: "gy-2", dept: "gy", layout: "tip", active: true,
-      tag: "Did You Know?",
-      headline: "Women's hearts beat slightly faster than men's.",
-      body: "On average, women's resting heart rates are about <strong>3–5 beats per minute faster</strong> than men's. Women's hearts are also typically smaller and pump less blood per beat, compensating with a faster rhythm to maintain the same cardiac output."
-    },
-
-    // ── NEPHROLOGY NEW ────────────────────────────────────────────
-    {
-      id: "ne-3", dept: "ne", layout: "split", active: true,
-      tag: "Fun Fact",
-      headline: "The kidneys maintain a precise chemical balance around the clock.",
-      body: "Blood pH must stay within a very narrow range — between 7.35 and 7.45 — to sustain life. The kidneys are the primary long-term regulator of this balance, constantly adjusting the composition of blood by retaining or excreting specific molecules with extraordinary precision."
-    },
-
-    // ── NEUROLOGY NEW ─────────────────────────────────────────────
-    {
-      id: "nr-3", dept: "nr", layout: "tip", active: true,
-      tag: "Science Fact",
-      headline: "The brain uses about 20% of the body's energy.",
-      body: "Despite making up only about 2% of body weight, the brain consumes roughly <strong>20% of the body's total energy</strong> — most of it used to maintain the electrical potential of neurons even when they're not actively firing. The brain has no energy storage, so it demands a continuous supply."
-    },
-
-    // ── ONCOLOGY NEW ──────────────────────────────────────────────
-    {
-      id: "on-3", dept: "on", layout: "hero", active: true,
-      tag: "Did You Know?",
-      headline: "The immune system destroys abnormal cells every day.",
-      body: "The body's immune surveillance system constantly scans for cells that have developed abnormal mutations and eliminates them before they can grow. Scientists believe this process quietly prevents countless potential cancers throughout a person's lifetime — most of which are never detected."
-    },
-
-    // ── OPHTHALMOLOGY NEW ─────────────────────────────────────────
-    {
-      id: "op-3", dept: "op", layout: "tip", active: true,
-      tag: "Fun Fact",
-      headline: "The cornea has no blood vessels.",
-      body: "The cornea — the clear front surface of the eye — is one of the only tissues in the body with <strong>no blood supply</strong>. It receives oxygen directly from the air and nutrients from the tears and fluid behind it. This transparency is essential for clear vision."
-    },
-
-    // ── ORTHOPEDICS NEW ───────────────────────────────────────────
-    {
-      id: "or-2", dept: "or", layout: "hero", active: true,
-      tag: "Did You Know?",
-      headline: "The knee is the largest and most complex joint in the body.",
-      body: "It is held together by <strong>four major ligaments, two menisci, and over a dozen tendons</strong>, yet it is essentially a hinge designed to handle forces several times your body weight with every step. Despite its complexity, it moves reliably for decades in most people."
-    },
-
-    // ── PAIN MANAGEMENT NEW ───────────────────────────────────────
-    {
-      id: "pm-3", dept: "pm", layout: "split", active: true,
-      tag: "Science Fact",
-      headline: "Chronic pain can change the structure of the brain.",
-      body: "Long-term pain is associated with measurable changes in brain gray matter density, particularly in regions involved in emotional regulation and decision-making. This is one reason chronic pain is now understood as a <strong>condition of the nervous system</strong>, not just the site of injury."
-    },
-
-    // ── PODIATRY NEW ──────────────────────────────────────────────
-    {
-      id: "po-3", dept: "po", layout: "hero", active: true,
-      tag: "Did You Know?",
-      headline: "Toenails and fingernails grow at different speeds.",
-      body: "Fingernails grow roughly <strong>three times faster</strong> than toenails — about 3mm per month versus 1mm. The nail on the middle finger grows fastest of all. Both are made of keratin, the same protein that forms hair and the outer layer of skin."
-    },
-
-    // ── PSYCHIATRY NEW ────────────────────────────────────────────
-    {
-      id: "ps-3", dept: "ps", layout: "split", active: true,
-      tag: "Did You Know?",
-      headline: "Dreams occur in every sleep cycle — not just deep sleep.",
-      body: "While the most vivid dreams happen during REM sleep, research has shown that dreaming occurs across all sleep stages. The brain appears to use dreaming to <strong>process emotional experiences, consolidate memories,</strong> and run simulations of future scenarios."
-    },
-
-    // ── PULMONOLOGY NEW ───────────────────────────────────────────
-    {
-      id: "pu-3", dept: "pu", layout: "tip", active: true,
-      tag: "Fun Fact",
-      headline: "The left and right lungs are not the same size.",
-      body: "The <strong>right lung is larger</strong> than the left, with three lobes compared to the left's two. The left lung is smaller to make room for the heart, which sits slightly left of center in the chest. Together they weigh about 2.5 pounds."
-    },
-
-    // ── RHEUMATOLOGY NEW ──────────────────────────────────────────
-    {
-      id: "rh-3", dept: "rh", layout: "hero", active: true,
-      tag: "Did You Know?",
-      headline: "There are over 100 distinct types of arthritis.",
-      body: "Most people think of arthritis as a single condition, but it is actually an umbrella term covering more than <strong>100 different diseases</strong> affecting joints, surrounding tissue, and connective tissue throughout the body. Rheumatologists specialize in diagnosing and distinguishing between them."
-    },
-
-    // ── UROLOGY NEW ───────────────────────────────────────────────
-    {
-      id: "ur-3", dept: "ur", layout: "tip", active: true,
-      tag: "Did You Know?",
-      headline: "The kidney stone is one of the oldest documented medical conditions.",
-      body: "Kidney stones have been found in Egyptian mummies dating back over <strong>7,000 years</strong>, making them one of the oldest known human ailments. Ancient physicians in Egypt, India, and Greece all described and attempted to treat them — evidence that this condition has followed humanity throughout history."
-    },
-
-    // ── VASCULAR SURGERY NEW ──────────────────────────────────────
-    {
-      id: "va-2", dept: "va", layout: "hero", active: true,
-      tag: "Did You Know?",
-      headline: "Arteries and veins are fundamentally different structures.",
-      body: "Arteries carry oxygenated blood away from the heart under high pressure, with thick muscular walls built to withstand the force. Veins carry blood back at low pressure, with thinner walls and one-way valves to prevent backflow. <strong>Capillaries</strong> — the bridges between them — are so narrow that red blood cells pass through in single file."
-    },
-    {
-      id: "va-3", dept: "va", layout: "split", active: true,
-      tag: "History",
-      headline: "The first vascular surgery was performed in 1906.",
-      body: "Alexis Carrel developed the technique of <strong>suturing blood vessels</strong> in the early 1900s — work so groundbreaking it earned him the Nobel Prize in 1912. His methods became the foundation of modern vascular and transplant surgery."
-    },
-
-    // ── SLEEP MEDICINE NEW ────────────────────────────────────────
-    {
-      id: "sl-3", dept: "sl", layout: "split", active: true,
-      tag: "Science Fact",
-      headline: "Sleep deprivation affects the body as profoundly as alcohol.",
-      body: "Studies have shown that being awake for <strong>17–19 hours</strong> produces cognitive impairment equivalent to a blood alcohol level of 0.05%. After 24 hours without sleep, impairment matches a 0.10% blood alcohol level — above the legal driving limit in every U.S. state."
-    },
-
-    // ── SPECIALTY SURGERY NEW ─────────────────────────────────────
-    {
-      id: "ss-2", dept: "ss", layout: "hero", active: true,
-      tag: "Did You Know?",
-      headline: "Robotic surgery doesn't mean the robot operates alone.",
-      body: "In robotic-assisted surgery, a surgeon controls every movement in real time from a console — the robotic system simply translates those movements into smaller, more precise actions than the human hand can achieve alone. The surgeon is <strong>always in complete control</strong> of the procedure."
-    },
-
-    // ── SPINAL SURGERY NEW ────────────────────────────────────────
     {
       id: "sp-2", dept: "sp", layout: "hero", active: true,
       tag: "Did You Know?",
@@ -705,6 +665,7 @@ const DEPT = {
   sl: { name: 'Sleep Medicine',         color: '#3D4A5A', light: '#E7EAF0' },
   ss: { name: 'Specialty Surgery',      color: '#5A3D2D', light: '#F0EAE4' },
   sp: { name: 'Spinal Surgery',         color: '#3D2D5A', light: '#EAE7F2' },
+  nw: { name: 'Citizens Health',        color: '#1a5c3a', light: '#e4f2eb' },
 };
 
 // =====================================================================
@@ -850,9 +811,8 @@ function buildSpotlight(s, d) {
 // =====================================================================
 let current = 0, timer = null;
 const rotationMs = (CONTENT.settings.rotation_seconds || 9) * 1000;
-// Shuffle slides so no two from the same department appear back-to-back
+
 function shuffle(arr) {
-  // Fisher-Yates shuffle
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -861,12 +821,10 @@ function shuffle(arr) {
 }
 
 function interleave(arr) {
-  // Shuffle, then check for consecutive same-dept and swap to fix
   shuffle(arr);
   for (let pass = 0; pass < 3; pass++) {
     for (let i = 1; i < arr.length; i++) {
       if (arr[i].dept === arr[i-1].dept) {
-        // Find next slide with a different dept to swap with
         for (let j = i + 1; j < arr.length; j++) {
           if (arr[j].dept !== arr[i-1].dept && (i === arr.length-1 || arr[j].dept !== arr[i+1].dept)) {
             [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -879,7 +837,18 @@ function interleave(arr) {
   return arr;
 }
 
-const slides = interleave(CONTENT.slides.filter(s => s.active !== false));
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+const slides = interleave(
+  CONTENT.slides.filter(s => {
+    if (s.active === false) return false;
+    if (s.expires) {
+      const expiry = new Date(s.expires);
+      if (today >= expiry) return false;
+    }
+    return true;
+  })
+);
 
 function showSlide(index) {
   const allEls = document.querySelectorAll('.slide');
