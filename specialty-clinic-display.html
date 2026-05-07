@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Citizens Health Specialty Clinic – Today's Providers</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue-primary: #075da6;
+    --blue-secondary: #64c2dc;
+    --white: #ffffff;
+    --black: #111111;
+    --gray-light: #f0f4f8;
+    --gray-mid: #dce6ef;
+    --text-muted: #4a6278;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: var(--white);
+    font-family: 'Barlow', sans-serif;
+    color: var(--black);
+  }
+
+  /* ─── LAYOUT ─────────────────────────────────────── */
+  .screen {
+    width: 1080px;
+    height: 1920px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ─── HEADER ─────────────────────────────────────── */
+  .header {
+    background: var(--blue-primary);
+    padding: 52px 60px 44px;
+    flex-shrink: 0;
+  }
+
+  .header-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  .header-logo {
+    height: 64px;
+    width: auto;
+  }
+
+  .header-wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .header-wordmark-main {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 42px;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .header-wordmark-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--blue-secondary);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .header-divider {
+    width: 100%;
+    height: 2px;
+    background: rgba(100,194,220,0.35);
+    margin: 0 0 28px;
+  }
+
+  .header-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--blue-secondary);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .header-date {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 80px;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  /* ─── ACCENT BAR ─────────────────────────────────── */
+  .accent-bar {
+    height: 10px;
+    background: linear-gradient(90deg, var(--blue-secondary) 0%, var(--blue-primary) 100%);
+    flex-shrink: 0;
+  }
+
+  /* ─── BODY ───────────────────────────────────────── */
+  .body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 48px 60px 40px;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: var(--blue-primary);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: var(--gray-mid);
+  }
+
+  /* ─── PROVIDER CARDS ─────────────────────────────── */
+  .cards-container {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .provider-card {
+    background: var(--gray-light);
+    border-left: 10px solid var(--blue-primary);
+    border-radius: 0 16px 16px 0;
+    padding: 28px 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 1 0;
+    min-height: 120px;
+    position: relative;
+    overflow: hidden;
+    animation: cardIn 0.5s ease both;
+  }
+
+  .provider-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 200px; height: 100%;
+    background: linear-gradient(270deg, rgba(100,194,220,0.08) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .card-specialty {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue-secondary);
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  .card-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+  }
+
+  .card-badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .badge-telehealth {
+    background: rgba(7,93,166,0.10);
+    color: var(--blue-primary);
+  }
+
+
+  /* ─── NO CLINIC ──────────────────────────────────── */
+  .no-clinic {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .no-clinic-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--gray-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .no-clinic-icon svg {
+    width: 60px;
+    height: 60px;
+    opacity: 0.35;
+  }
+
+  .no-clinic-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 64px;
+    color: var(--black);
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+
+  .no-clinic-sub {
+    font-size: 26px;
+    color: var(--text-muted);
+    font-weight: 400;
+    max-width: 600px;
+  }
+
+  /* ─── FOOTER ─────────────────────────────────────── */
+  .footer {
+    background: var(--blue-primary);
+    padding: 28px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .footer-call {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-call-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue-secondary);
+  }
+
+  .footer-call-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 52px;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .footer-address {
+    text-align: right;
+    font-size: 20px;
+    color: rgba(255,255,255,0.70);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  .footer-address strong {
+    color: var(--white);
+    font-weight: 600;
+    display: block;
+    font-size: 22px;
+  }
+
+  /* ─── CLOCK STRIP ────────────────────────────────── */
+  .clock-strip {
+    background: var(--blue-secondary);
+    padding: 14px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .clock-time {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 38px;
+    color: var(--white);
+    letter-spacing: 0.04em;
+  }
+
+  .clock-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ─── ANIMATION ──────────────────────────────────── */
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateX(-24px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+</style>
+</head>
+<body>
+<div class="screen" id="screen">
+  <!-- Rendered by JS -->
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  SCHEDULE DATA — Update this section each month
+//  Format: "YYYY-MM-DD": [ { name, specialty, badge? }, ... ]
+//  badge options: "telehealth" | "skin" | "or" | null
+//  ortho: true  →  green accent (Salina Ortho providers)
+// ═══════════════════════════════════════════════════════════════
+const SCHEDULE = {
+
+  // ── WEEK 1 ──────────────────────────────────────────────────
+  "2026-04-01": [
+    { name: "Dr. Edwards", specialty: "Psychiatry" },
+    { name: "Dr. Hinze", specialty: "Podiatry" },
+  ],
+  "2026-04-02": [
+    { name: "Dr. Clifford", specialty: "Ophthalmology" },
+    { name: "Dr. Edwards", specialty: "Psychiatry" },
+    { name: "Dr. Haeri", specialty: "Maternal Fetal Medicine", badge: "telehealth" },
+    { name: "Dr. Kanade", specialty: "Nephrology", badge: "telehealth" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Adam Horinek, PA-C", specialty: "Skin Care Clinic" },
+    { name: "Angie Witman, LCP", specialty: "Counseling Services" },
+  ],
+  "2026-04-03": [
+    { name: "Dr. Clifford", specialty: "Ophthalmology" },
+    { name: "Dr. Fitzpatrick", specialty: "ENT" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Patel", specialty: "Allergy / Immunology", badge: "telehealth" },
+  ],
+
+  // ── WEEK 2 ──────────────────────────────────────────────────
+  "2026-04-06": [
+    { name: "Dr. Crawley", specialty: "Cardiology" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Christy Jones, APRN", specialty: "Cardiology" },
+  ],
+  "2026-04-07": [
+    { name: "Dr. Fitzpatrick", specialty: "ENT" },
+    { name: "Dr. Janif", specialty: "Cardiology" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+  ],
+  "2026-04-08": [
+    { name: "Dr. George", specialty: "Oncology / Hematology" },
+    { name: "Dr. Patel", specialty: "Allergy / Immunology" },
+    { name: "Dr. Tangel", specialty: "Pulmonology" },
+    { name: "N. Chasnow, PA-C", specialty: "Spinal Surgery" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+  ],
+  "2026-04-09": [
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Lopez", specialty: "Urology", badge: "telehealth" },
+    { name: "Dr. Patel", specialty: "Allergy / Immunology" },
+    { name: "Adam Horinek, PA-C", specialty: "Skin Care Clinic" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+  ],
+  "2026-04-10": [
+    { name: "Dr. Hinze", specialty: "Podiatry" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Patel", specialty: "Allergy / Immunology" },
+  ],
+
+  // ── WEEK 3 ──────────────────────────────────────────────────
+  "2026-04-13": [
+    { name: "Dr. Crawley", specialty: "Cardiology" },
+    { name: "Dr. Dassouki", specialty: "Cardiology" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "M. Gubitoso, APRN", specialty: "Cardiology" },
+  ],
+  "2026-04-14": [
+    { name: "Dr. Fitzpatrick", specialty: "ENT" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Sears", specialty: "Orthopedics" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+  ],
+  "2026-04-15": [
+    { name: "Dr. Forschner", specialty: "Gynecology" },
+    { name: "Dr. Hinze", specialty: "Podiatry" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+  ],
+  "2026-04-16": [
+    { name: "Dr. Haeri", specialty: "Maternal Fetal Medicine", badge: "telehealth" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Samavedi", specialty: "Urology", badge: "telehealth" },
+    { name: "Dr. Tilden", specialty: "Endocrinology", badge: "telehealth" },
+    { name: "Adam Horinek, PA-C", specialty: "Skin Care Clinic" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+  ],
+  "2026-04-17": [
+    { name: "Dr. Kanade", specialty: "Nephrology", badge: "telehealth" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Start", specialty: "Sleep Medicine", badge: "telehealth" },
+  ],
+
+  // ── WEEK 4 ──────────────────────────────────────────────────
+  "2026-04-20": [
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Smith", specialty: "Urology" },
+  ],
+  "2026-04-21": [
+    { name: "Dr. Fitzpatrick", specialty: "ENT" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Smith", specialty: "Urology" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+  ],
+  "2026-04-22": [
+    { name: "Dr. Eby", specialty: "Spinal Surgery" },
+    { name: "Dr. George", specialty: "Oncology / Hematology" },
+    { name: "Dr. Korman", specialty: "Rheumatology" },
+    { name: "Dr. Leung", specialty: "Vascular Surgery" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+  ],
+  "2026-04-23": [
+    { name: "Dr. Crawley", specialty: "Cardiology" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Pack", specialty: "Neurology" },
+    { name: "Adam Horinek, PA-C", specialty: "Skin Care Clinic" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+    { name: "Christy Jones, APRN", specialty: "Cardiology" },
+  ],
+  "2026-04-24": [
+    { name: "Dr. Clifford", specialty: "Ophthalmology" },
+    { name: "Dr. Gabel", specialty: "Specialty Surgery" },
+    { name: "Dr. Pack", specialty: "Neurology" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+  ],
+  "2026-04-25": [
+    { name: "Dr. Diebert", specialty: "Ophthalmology – Retinal Specialist" },
+  ],
+
+  // ── WEEK 5 ──────────────────────────────────────────────────
+  "2026-04-27": [
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Nitka", specialty: "Neurology" },
+    { name: "Dr. Smairat", specialty: "Cardiology" },
+  ],
+  "2026-04-28": [
+    { name: "Dr. Fitzpatrick", specialty: "ENT" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Nitka", specialty: "Neurology" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+  ],
+  "2026-04-29": [
+    { name: "Dr. Hinze", specialty: "Podiatry" },
+    { name: "Dr. Nitka", specialty: "Neurology" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+  ],
+  "2026-04-30": [
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Adam Horinek, PA-C", specialty: "Skin Care Clinic" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+  ],
+
+  // ── MAY 2026 ────────────────────────────────────────────────
+
+  // ── WEEK 1 ──────────────────────────────────────────────────
+  "2026-05-01": [
+    { name: "Dr. Fitzpatrick", specialty: "ENT" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+  ],
+  "2026-05-02": [
+    { name: "Dr. Fitzpatrick", specialty: "ENT" },
+  ],
+
+  // ── WEEK 2 ──────────────────────────────────────────────────
+  "2026-05-04": [
+    { name: "Dr. Crawley", specialty: "Cardiology" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Patel", specialty: "Allergy / Immunology", badge: "telehealth" },
+    { name: "Christy Jones, APRN", specialty: "Cardiology" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+  ],
+  "2026-05-05": [
+    { name: "Dr. Herrenbruck", specialty: "Orthopedics" },
+    { name: "Dr. Fitzpatrick", specialty: "ENT" },
+    { name: "Dr. Janif", specialty: "Cardiology" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+  ],
+  "2026-05-06": [
+    { name: "Dr. Dassouki", specialty: "Cardiology" },
+    { name: "Dr. George", specialty: "Oncology / Hematology" },
+    { name: "Dr. Hinze", specialty: "Podiatry" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+    { name: "Claire Leis, RDN", specialty: "Dietitian" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+  ],
+  "2026-05-07": [
+    { name: "Dr. Clifford", specialty: "Ophthalmology" },
+    { name: "Dr. Haeri", specialty: "Maternal Fetal Medicine", badge: "telehealth" },
+    { name: "Dr. Kanade", specialty: "Nephrology" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Adam Horinek, PA-C", specialty: "Skin Care Clinic" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+    { name: "Angie Witman, LCP", specialty: "Counseling Services" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+  ],
+  "2026-05-08": [
+    { name: "Dr. Gabel", specialty: "Specialty Surgery" },
+    { name: "Dr. Hinze", specialty: "Podiatry" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Tangel", specialty: "Pulmonology" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+  ],
+
+  // ── WEEK 3 ──────────────────────────────────────────────────
+  "2026-05-11": [
+    { name: "Dr. Crawley", specialty: "Cardiology" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "M. Gubitoso, APRN", specialty: "Cardiology" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+    { name: "Angie Witman, LCP", specialty: "Counseling Services" },
+  ],
+  "2026-05-12": [
+    { name: "Dr. Horinek", specialty: "Orthopedics" },
+    { name: "Dr. Fitzpatrick", specialty: "ENT" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Pack", specialty: "Neurology" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+  ],
+  "2026-05-13": [
+    { name: "Dr. Hinze", specialty: "Podiatry" },
+    { name: "Dr. Pack", specialty: "Neurology" },
+    { name: "Dr. Patel", specialty: "Allergy / Immunology" },
+    { name: "N. Chasnow, PA-C", specialty: "Spinal Surgery" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+  ],
+  "2026-05-14": [
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Lopez", specialty: "Urology", badge: "telehealth" },
+    { name: "Dr. Patel", specialty: "Allergy / Immunology" },
+    { name: "Adam Horinek, PA-C", specialty: "Skin Care Clinic" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+    { name: "Angie Witman, LCP", specialty: "Counseling Services" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+  ],
+  "2026-05-15": [
+    { name: "Dr. Kanade", specialty: "Nephrology", badge: "telehealth" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Start", specialty: "Sleep Medicine" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+  ],
+
+  // ── WEEK 4 ──────────────────────────────────────────────────
+  "2026-05-18": [
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+    { name: "Angie Witman, LCP", specialty: "Counseling Services" },
+  ],
+  "2026-05-19": [
+    { name: "Dr. Grauerholz", specialty: "Orthopedics" },
+    { name: "Dr. Fitzpatrick", specialty: "ENT" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Smith", specialty: "Urology" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+  ],
+  "2026-05-20": [
+    { name: "Dr. George", specialty: "Oncology / Hematology" },
+    { name: "Dr. Smith", specialty: "Urology" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+    { name: "Claire Leis, RDN", specialty: "Dietitian" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+  ],
+  "2026-05-21": [
+    { name: "Dr. Haeri", specialty: "Maternal Fetal Medicine", badge: "telehealth" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Samavedi", specialty: "Urology", badge: "telehealth" },
+    { name: "Dr. Tilden", specialty: "Endocrinology", badge: "telehealth" },
+    { name: "Adam Horinek, PA-C", specialty: "Skin Care Clinic" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+  ],
+  "2026-05-22": [
+    { name: "Dr. Clifford", specialty: "Ophthalmology" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Smith", specialty: "Urology" },
+  ],
+  "2026-05-23": [
+    { name: "Dr. Diebert", specialty: "Ophthalmology – Retinal Specialist" },
+  ],
+
+  // ── WEEK 5 ──────────────────────────────────────────────────
+  // May 25 = Memorial Day — no entries, will show No Clinic Today
+  "2026-05-26": [
+    { name: "Dr. Fitzpatrick", specialty: "ENT" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Nitka", specialty: "Neurology" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+  ],
+  "2026-05-27": [
+    { name: "Dr. Eby", specialty: "Spinal Surgery" },
+    { name: "Dr. Korman", specialty: "Rheumatology" },
+    { name: "Dr. Leung", specialty: "Vascular Surgery" },
+    { name: "Dr. Nitka", specialty: "Neurology" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+    { name: "Claire Leis, RDN", specialty: "Dietitian" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+  ],
+  "2026-05-28": [
+    { name: "Dr. Crawley", specialty: "Cardiology" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Adam Horinek, PA-C", specialty: "Skin Care Clinic" },
+    { name: "Sasha Edwards, APRN", specialty: "Psychiatry", badge: "telehealth" },
+    { name: "Christy Jones, APRN", specialty: "Cardiology" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+    { name: "Angie Witman, LCP", specialty: "Counseling Services" },
+  ],
+  "2026-05-29": [
+    { name: "Dr. Horinek", specialty: "Orthopedics" },
+    { name: "Dr. Larson", specialty: "Audiology" },
+    { name: "Dr. Patel", specialty: "Allergy / Immunology", badge: "telehealth" },
+    { name: "Amber Withington, APRN", specialty: "Oncology / Hematology" },
+  ],
+};
+
+// ═══════════════════════════════════════════════════════════════
+//  RENDERING
+// ═══════════════════════════════════════════════════════════════
+
+function pad(n) { return String(n).padStart(2, '0'); }
+
+function getDateKey() {
+  const now = new Date();
+  return `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
+}
+
+function formatDate(date) {
+  const days   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const months = ['January','February','March','April','May','June',
+                  'July','August','September','October','November','December'];
+  return {
+    dow:   days[date.getDay()],
+    month: months[date.getMonth()],
+    day:   date.getDate(),
+    year:  date.getFullYear(),
+  };
+}
+
+function updateClock() {
+  const now  = new Date();
+  let h = now.getHours(), m = now.getMinutes();
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  h = h % 12 || 12;
+  document.getElementById('clock').textContent = `${h}:${pad(m)} ${ampm}`;
+}
+
+function badgeHTML(badge) {
+  if (!badge) return '';
+  const labels = { telehealth: 'Telehealth' };
+  return `<span class="card-badge badge-${badge}">${labels[badge]}</span>`;
+}
+
+function fontSizeForCount(n) {
+  if (n <= 2) return '62px';
+  if (n <= 4) return '50px';
+  if (n <= 6) return '42px';
+  if (n <= 8) return '34px';
+  return '28px';
+}
+
+function render() {
+  const today    = new Date();
+  const dateKey  = getDateKey();
+  const fmt      = formatDate(today);
+  const providers = SCHEDULE[dateKey] || [];
+
+  const screen = document.getElementById('screen');
+
+  const headerHTML = `
+    <div class="header">
+      <div class="header-logo-row">
+        <svg class="header-logo" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="50" r="46" fill="none" stroke="#64c2dc" stroke-width="4"/>
+          <rect x="50" y="22" width="20" height="56" rx="5" fill="#ffffff"/>
+          <rect x="32" y="40" width="56" height="20" rx="5" fill="#ffffff"/>
+        </svg>
+        <div class="header-wordmark">
+          <span class="header-wordmark-main">Citizens Health</span>
+          <span class="header-wordmark-sub">Specialty Clinic</span>
+        </div>
+      </div>
+      <div class="header-divider"></div>
+      <div class="header-label">Providers Seeing Patients Today</div>
+      <div class="header-date">${fmt.dow}, ${fmt.month} ${fmt.day}</div>
+    </div>
+    <div class="accent-bar"></div>
+  `;
+
+  let bodyHTML = '';
+
+  if (providers.length === 0) {
+    bodyHTML = `
+      <div class="body">
+        <div class="no-clinic">
+          <div class="no-clinic-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#075da6" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M8 12h8M12 8v8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="no-clinic-title">No Clinic Today</div>
+          <div class="no-clinic-sub">The specialty clinic is not scheduled today. Call us to learn about upcoming appointments.</div>
+        </div>
+      </div>
+    `;
+  } else {
+    const fontSize = fontSizeForCount(providers.length);
+    const cards = providers.map((p, i) => `
+      <div class="provider-card" style="animation-delay:${i * 0.07}s">
+        <div class="card-specialty">${p.specialty}</div>
+        <div class="card-name" style="font-size:${fontSize}">${p.name}</div>
+        ${badgeHTML(p.badge || null)}
+      </div>
+    `).join('');
+
+    bodyHTML = `
+      <div class="body">
+        <div class="section-label">Today's Providers</div>
+        <div class="cards-container">${cards}</div>
+      </div>
+    `;
+  }
+
+  const footerHTML = `
+    <div class="clock-strip">
+      <span class="clock-time" id="clock">--:-- --</span>
+      <span class="clock-tagline">Right Here in Colby</span>
+    </div>
+    <div class="footer">
+      <div class="footer-call">
+        <span class="footer-call-label">To Schedule, Call</span>
+        <span class="footer-call-number">785-460-1223</span>
+      </div>
+      <div class="footer-address">
+        <strong>Citizens Health Specialty Clinic</strong>
+        1525 S. Franklin Ave. · Colby, KS 67701
+      </div>
+    </div>
+  `;
+
+  screen.innerHTML = headerHTML + bodyHTML + footerHTML;
+
+  updateClock();
+  setInterval(updateClock, 30000);
+
+  // Refresh at midnight for next day's schedule
+  const now = new Date();
+  const msUntilMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1, 0, 0, 5).getTime() - now.getTime();
+  setTimeout(() => { location.reload(); }, msUntilMidnight);
+}
+
+render();
+</script>
+</body>
+</html>
